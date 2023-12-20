@@ -11,42 +11,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.module1.ui.theme.MyApplicationTheme
 import com.example.mylibrary.MainActivity
+import com.example.mylibrary2.MainActivity2
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        setContent {
-//            MyApplicationTheme {
-//                // A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colorScheme.background
-//                ) {
-//                    Greeting("Android")
-//                }
-//            }
-//        }
+
 
         val btnLaunchOtherModule = findViewById<Button>(R.id.btnLaunchOtherModule)
         btnLaunchOtherModule.setOnClickListener { // 处理按钮点击事件，启动另一个模块的 Activity
-            launchOtherModuleActivity()
-            //Log.d("YourTag", "Debug message11111")
-            //MainActivity.doSomething();
-            //System.out.println("module1 print123");
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        val btn2 = findViewById<Button>(R.id.btn2)
+        btn2.setOnClickListener { // 处理按钮点击事件，启动另一个模块的 Activity
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+
         }
 
     }
 
     private fun launchOtherModuleActivity() {
         // 在这里使用 Intent 启动另一个模块的 Activity
-//        Intent intent = new Intent(this, io.cordova.hellocordova.MainActivity);
-//        startActivity(intent);
-        // 在这里使用 Intent 启动另一个模块的 Activity
-//        val intent = Intent()
-//        intent.component =
-//            ComponentName("com.example.mylibrary", "com.example.mylibrary.MainActivity")
-//        startActivity(intent)
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
